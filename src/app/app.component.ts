@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GetService } from './get.service';
+import { DistrictUtilsService } from './districtinfo/districtutils.service';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +9,13 @@ import { GetService } from './get.service';
 })
 export class AppComponent implements OnInit  {
   title = 'covid-india';
+  loadComponent =false;
 
-  constructor(){}
+  constructor(private districtUtils:DistrictUtilsService){     
+  }
 
   ngOnInit(){
       
   }
+
 }

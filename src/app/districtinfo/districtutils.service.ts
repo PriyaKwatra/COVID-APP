@@ -1,20 +1,17 @@
-import { districtinfo, districtData } from './districtinfo.interface';
+
 import { Injectable } from '@angular/core';
 
 @Injectable({
     providedIn: 'root',
   })
 export class DistrictUtilsService{
+    obj
+    districtData
+    loadComponent
 
-    statesWithDistrictData:[districtinfo]
-
-
-getInfoByState(state:string){
-    let districtInfo:[districtData];
-     this.statesWithDistrictData.forEach((info)=>{
-         districtInfo = info.districtData;
-    })
-    return districtInfo;
+setDistrictData(state:string){
+    this.districtData= this.obj.state.districtData;
+    this.loadComponent = true;
 }
 
 }
