@@ -2,31 +2,32 @@ import { Component, OnInit, DoCheck } from '@angular/core';
 import { GetService } from './get.service';
 import { DistrictUtilsService } from './districtinfo/districtutils.service';
 import { LoginService } from './login/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit ,DoCheck {
+export class AppComponent implements OnInit {
   title = 'covid-india';
   loadComponent =false;
-  loggedOut = true;
+  loggedIn = false;
 
-  constructor(private districtUtils:DistrictUtilsService,private loginService:LoginService){     
+  constructor(private districtUtils:DistrictUtilsService,
+    private loginService:LoginService,
+     private router:Router){     
   }
 
   ngOnInit(){
-      this.loggedOut=this.loginService.loggedOut;
+      this.loggedIn= sessionStorage.getItem("loggedIn")=="true";
+      console.log(this.loggedIn);
   }
 
   logOut(){
-    this.loggedOut=true;
-     this.loginService.logOut();
-  }
-
-  ngDoCheck(){
-    this.loggedOut=this.loginService.loggedOut;
+     sessionStorage.setItem("loggedIn","false");
+     console.log(this.loggedIn);
+     this.router.navigate(['']);
   }
 
 }

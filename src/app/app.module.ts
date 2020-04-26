@@ -14,10 +14,10 @@ import {DistrictUtilsService } from './districtinfo/districtutils.service';
 import { RouterModule, Routes } from '@angular/router';
 import { PrecautionsComponent } from './precautions/precautions.component';
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from './login/login.service';
-// MDB Angular Pro
-
+import { NewsComponent } from './news/news.component';
+import { AddNewsComponent } from './add-news/add-news.component';
 
 const appRoutes:Routes =[{path:'', component:DashboardComponent },
 {path:'state', component: DistrictinfoComponent},
@@ -30,7 +30,9 @@ const appRoutes:Routes =[{path:'', component:DashboardComponent },
     DashboardComponent,
     DistrictinfoComponent,
     PrecautionsComponent,
-    LoginComponent
+    LoginComponent,
+    NewsComponent,
+    AddNewsComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,7 @@ const appRoutes:Routes =[{path:'', component:DashboardComponent },
     WavesModule,
     MatTableModule,
     MatCardModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
     CheckboxModule, ButtonsModule, InputsModule, IconsModule, CardsModule,
   ChartsModule ],

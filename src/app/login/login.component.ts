@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
     if(this.signIn){
       this.loginService.loggedOut=false;
       this.router.navigate(['']);
+      sessionStorage.setItem("loggedIn", "true");
     }
     else{
       window.alert("incorrect email password");
