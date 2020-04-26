@@ -8,9 +8,9 @@ describe('DistrictinfoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DistrictinfoComponent ]
+      declarations: [DistrictinfoComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

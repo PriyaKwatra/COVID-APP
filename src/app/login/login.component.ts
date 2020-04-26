@@ -5,29 +5,28 @@ import { Routes, Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css', 
-]})
+  styleUrls: ['./login.component.css',
+  ]
+})
 export class LoginComponent implements OnInit {
 
   mail
   password
-  signIn:boolean = false;
-  constructor(private loginService:LoginService,private router:Router) { }
+  signIn: boolean = false;
+  constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(){
-    this.signIn= this.loginService.validateUser(this.mail,this.password);
-    if(this.signIn){
-      this.loginService.loggedOut=false;
-      this.router.navigate(['']);
+  onSubmit() {
+    this.signIn = this.loginService.validateUser(this.mail, this.password);
+    if (this.signIn) {
       sessionStorage.setItem("loggedIn", "true");
+      this.loginService.login();
+      this.router.navigate(['']);
     }
-    else{
+    else {
       window.alert("incorrect email password");
     }
-    
   }
-
 }

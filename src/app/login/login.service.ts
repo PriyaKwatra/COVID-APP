@@ -1,30 +1,33 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 
 @Injectable({
-    providedIn: 'root',
-  })
-export class LoginService{
+  providedIn: 'root',
+})
+export class LoginService {
 
-mail = "pkwatra96@gmail.com"
-password = "hello"
-loggedOut = true;
+  mail = "pkwatra96@gmail.com"
+  password = "hello"
+  loggedIn = false;
 
-validateUser(mail, password){
+  private userLoggedIn = new BehaviorSubject<any>('');
+logIn = this.userLoggedIn.asObservable();
 
-if(this.mail==mail && this.password == password){
-    console.log("hiiii")
-    return true;
-}
+  validateUser(mail, password) {
 
-else{
-    return false;
-}
+    if (this.mail == mail && this.password == password) {
+      console.log("hiiii")
+      return true;
+    }
 
-}
+    else {
+      return false;
+    }
 
-logOut(){
-  this.loggedOut=true;
-}
+  }
 
+  login() {
+    this.userLoggedIn.next(true);
+  }
 
 }
