@@ -6,15 +6,21 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Dashboard<span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink = "">Dashboard<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Latest news</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Precautions</a>
+        <a class="nav-link" routerLink = "precautions">Precautions</a>
+      </li>
+      <li class="login" *ngIf="loggedOut">
+        <a class="nav-link" routerLink = "login">Login</a>
+      </li>
+      <li class="logout" *ngIf="!loggedOut">
+        <a class="nav-link" (onClick) = "logOut()" routerLink = "/">Logout</a>
       </li>
     </ul>
   </div>
 </nav>
-<app-dashboard></app-dashboard>
+<router-outlet></router-outlet>

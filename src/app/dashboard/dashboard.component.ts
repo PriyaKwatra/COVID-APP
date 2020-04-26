@@ -10,6 +10,7 @@ import { DistrictUtilsService } from '../districtinfo/districtutils.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
+
 export class DashboardComponent implements OnInit {
 
 statedata:[statedata]
@@ -43,8 +44,6 @@ columnsToDisplay = ['state', 'confirmed cases', 'deaths', 'recovered'];
       
   }
 
-
-
   setDistrictData(state:string){
     this.districtUtils.setDistrictData(state);   
   }
@@ -57,9 +56,9 @@ columnsToDisplay = ['state', 'confirmed cases', 'deaths', 'recovered'];
     this.chartDatasets[0].data=(this.casesbytime.map(x=>x.totalconfirmed).splice(size-10,size-1));
   }
 
-
-  loadDistrictComponent(state:string){
+  loadDistrictComponent(state){
     this.loadComponent=true;
+    console.log(this.loadComponent)
     this.districtUtils.setDistrictData(state);
   }
 

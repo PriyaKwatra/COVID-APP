@@ -10,7 +10,8 @@ export class DistrictUtilsService{
     loadComponent
 
 setDistrictData(state:string){
-    this.districtData= this.obj.state.districtData;
+    console.log(this.obj);
+    this.districtData= this.obj[state].districtData;
     this.loadComponent = true;
 }
 

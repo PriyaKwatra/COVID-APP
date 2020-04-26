@@ -12,9 +12,10 @@
 
 <table mat-table [dataSource]= "statedata" class="mat-elevation-z8">
 
-    <ng-container matColumnDef="state">
+    <ng-container matColumnDef="state" >
       <th mat-header-cell *matHeaderCellDef> STATE </th>
-      <td mat-cell *matCellDef="let data" click = "loadDistrictComponent(data.state)"> {{data.state}} </td>
+      <td mat-cell *matCellDef="let data" >
+        <a routerLink="state" (click) = "loadDistrictComponent(data.state)" routerLinkActive="loadComponent">{{data.state}}</a>  </td>
     </ng-container>
     <ng-container matColumnDef="confirmed cases">
       <th mat-header-cell *matHeaderCellDef> CONFIRMED CASES </th>
@@ -34,4 +35,3 @@
     <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
     <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
   </table>
-  <app-districtinfo *ngIf = "loadComponent"></app-districtinfo>
