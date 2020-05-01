@@ -32,13 +32,12 @@ export class DashboardComponent implements OnInit {
     responsive: true
   };
 
-  loggedIn = false;
 
   columnsToDisplay = ['state', 'confirmed cases', 'deaths', 'recovered'];
-  constructor(private getservice: GetService, private districtUtils: DistrictUtilsService,private loginService:LoginService) { }
+
+  constructor(private getservice: GetService, private districtUtils: DistrictUtilsService, private loginService: LoginService) { }
 
   ngOnInit() {
-     this.loginService.loggedIn = sessionStorage.getItem("loggedIn") == "true";
 
     this.getservice.getIndiaStatus().subscribe((obj: dashboard) => {
       this.initialiseData(obj);
@@ -55,17 +54,12 @@ export class DashboardComponent implements OnInit {
   }
 
   initialiseData(obj: dashboard) {
+    obj.statewise.splice(0,1);
     this.statedata = obj.statewise;
     this.casesbytime = obj.cases_time_series;
     let size = this.casesbytime.length;
     this.chartLabels = (this.casesbytime.map(x => x.date).splice(size - 10, size - 1));
     this.chartDatasets[0].data = (this.casesbytime.map(x => x.totalconfirmed).splice(size - 10, size - 1));
-  }
-
-  loadDistrictComponent(state) {
-    this.loadComponent = true;
-    console.log(this.loadComponent)
-    this.districtUtils.setDistrictData(state);
   }
 
 }

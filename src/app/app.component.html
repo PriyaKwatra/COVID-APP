@@ -10,10 +10,13 @@
         <a class="nav-link" routerLink="">Dashboard<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Latest news</a>
+        <a class="nav-link" routerLink="news">Latest news</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="precautions">Precautions</a>
+      </li>
+      <li class="nav-item" *ngIf="loggedIn">
+        <a class="nav-link" routerLink="add">Add News</a>
       </li>
       <li class="login" *ngIf="!loggedIn">
         <a class="nav-link" routerLink="login">Login</a>
@@ -24,4 +27,5 @@
     </ul>
   </div>
 </nav>
+<label *ngIf="loggedIn">HELLO {{mail}} </label>
 <router-outlet></router-outlet>

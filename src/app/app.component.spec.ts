@@ -1,5 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -7,6 +8,9 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      imports: [
+        RouterTestingModule.withRoutes([]),
+    ]
     }).compileComponents();
   }));
 
@@ -22,10 +26,12 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('covid-india');
   });
 
-  it('should render title', () => {
+  it('should set session storage loggenIn to false when logged out', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('covid-india app is running!');
+    const app = fixture.componentInstance;
+    app.logOut()
+    fixture.detectChanges();
+    expect(sessionStorage.getItem("loggedIn")).toEqual("false");
   });
 });

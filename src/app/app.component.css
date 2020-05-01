@@ -3,3 +3,28 @@
     right: 0;
     width: 100px;
 }
+
+label{
+  position: relative;
+  right: 0;
+  left:1050px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.logout{
+    position: fixed;
+    right: 0;
+    width: 100px;
+}
+
+
+  li {
+    float: left;
+    margin:0 100px 0 0; 
+  }
+  
+  a {
+    font-family: "Times New Roman", Times, serif;
+  }
+
+  

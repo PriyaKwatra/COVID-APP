@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DistrictinfoComponent } from './districtinfo.component';
+import { DistrictUtilsService } from './districtutils.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('DistrictinfoComponent', () => {
   let component: DistrictinfoComponent;
@@ -8,7 +10,10 @@ describe('DistrictinfoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DistrictinfoComponent]
+      declarations: [DistrictinfoComponent],
+      imports: [
+        RouterTestingModule.withRoutes([]),
+    ]
     })
       .compileComponents();
   }));
@@ -19,7 +24,4 @@ describe('DistrictinfoComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });

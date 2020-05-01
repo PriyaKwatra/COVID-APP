@@ -1,1 +1,17 @@
-<p>add-news works!</p>
+<form [formGroup]="newsForm" (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
+  
+    <p class="h4 mb-4">Add News</p>
+
+    <p>
+      Title:
+      <input type="text" class="form-control mb-4" formControlName="title" required>
+    </p>
+  
+    <p>
+      Description:
+      <textarea id="w3mission" rows="4" class="form-control mb-4" formControlName="description" required>
+        </textarea>
+    </p>
+    <div class="d-flex justify-content-around"></div>
+    <button  mdbBtn color="info" block="true" class="my-4" type="submit" [disabled]="!newsForm.valid">Submit</button>
+  </form>

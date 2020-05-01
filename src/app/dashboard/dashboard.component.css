@@ -6,3 +6,47 @@ div{
     height: 500px;
     width: 50%;
   }
+
+canvas{
+  position: relative;
+  left: 300px;
+  top:50px;
+}  
+
+div.scroll{
+  position: relative;
+  left: 150px;
+  right:100px;
+  height: 500px;
+  width: 70%;
+  overflow: scroll;
+
+}
+
+h2{
+  position: relative;
+  left: 150px;
+  font-family: "Times New Roman", Times, serif;
+
+}
+
+tr:hover {
+  background-color: lightsteelblue;
+}
+
+tr{
+  font-family: "Times New Roman", Times, serif;
+  font-size: large;
+}
+
+td{
+  font-size: large;
+}
+
+th{
+  font-size: large;
+}
+
+a{
+  color: blueviolet
+}

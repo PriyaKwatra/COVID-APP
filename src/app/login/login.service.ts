@@ -10,24 +10,17 @@ export class LoginService {
   password = "hello"
   loggedIn = false;
 
-  private userLoggedIn = new BehaviorSubject<any>('');
-logIn = this.userLoggedIn.asObservable();
-
   validateUser(mail, password) {
-
     if (this.mail == mail && this.password == password) {
-      console.log("hiiii")
+      this.loggedIn = true;
       return true;
     }
 
     else {
+      this.loggedIn = false;
       return false;
     }
 
-  }
-
-  login() {
-    this.userLoggedIn.next(true);
   }
 
 }

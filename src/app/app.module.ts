@@ -18,11 +18,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from './login/login.service';
 import { NewsComponent } from './news/news.component';
 import { AddNewsComponent } from './add-news/add-news.component';
+import { NewsService } from './news/news.service';
 
 const appRoutes: Routes = [{ path: '', component: DashboardComponent },
-{ path: 'state', component: DistrictinfoComponent },
+{ path: 'state/:state', component: DistrictinfoComponent },
 { path: 'precautions', component: PrecautionsComponent },
-{ path: 'login', component: LoginComponent }]
+{ path: 'login', component: LoginComponent },
+{ path: 'add', component: AddNewsComponent },
+{ path: 'news', component: NewsComponent }]
 
 @NgModule({
   declarations: [
@@ -47,7 +50,7 @@ const appRoutes: Routes = [{ path: '', component: DashboardComponent },
     CheckboxModule, ButtonsModule, InputsModule, IconsModule, CardsModule,
     ChartsModule],
   exports: [RouterModule],
-  providers: [GetService, DistrictUtilsService, LoginService],
+  providers: [GetService, DistrictUtilsService, LoginService, NewsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
