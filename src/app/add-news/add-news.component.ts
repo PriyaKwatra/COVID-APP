@@ -34,9 +34,10 @@ export class AddNewsComponent implements OnInit {
     this.newsService.addNews({
       title: this.newsForm.value.title,
       content: this.newsForm.value.description,
-      date: fomattedDate
-    });
-   window.location.reload;
+      date: fomattedDate,
+      id: fomattedDate
+    }).subscribe(()=>{window.location.reload();});
+   
   }
 
 }

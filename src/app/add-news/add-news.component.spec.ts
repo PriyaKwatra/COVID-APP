@@ -2,6 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddNewsComponent } from './add-news.component';
 import { NewsService } from '../news/news.service';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('AddNewsComponent', () => {
   let component: AddNewsComponent;
@@ -9,7 +11,12 @@ describe('AddNewsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddNewsComponent ]
+      declarations: [ AddNewsComponent ],
+      imports: [
+        RouterTestingModule.withRoutes([]),
+        HttpClientTestingModule
+      ],
+      providers:[NewsService]
     })
     .compileComponents();
   }));
@@ -30,15 +37,13 @@ describe('AddNewsComponent', () => {
     component.newsForm.value.title = "news"
     component.onSubmit();
     fixture.detectChanges();
-    expect(newsService.news.length).toEqual(5);
+    expect(newsService.getNews).toBeTruthy;
+    expect(newsService.addNews).toBeTruthy;
   });
 
-  it('should intialise the news', () => {
-    let newsService = fixture.debugElement.injector.get(NewsService);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-    expect(newsService.news.length).toEqual(4);
+    it('news service should be created', () => {
+      const app = fixture.debugElement.componentInstance;
+      const service: NewsService = TestBed.get(NewsService);
+      expect(service).toBeTruthy();
+    });
   });
-
-
-});

@@ -1,8 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { NewsComponent } from './news.component';
 import { By } from '@angular/platform-browser';
 import { NewsService } from './news.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('NewsComponent', () => {
   let component: NewsComponent;
@@ -10,9 +12,14 @@ describe('NewsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewsComponent ]
+      declarations: [NewsComponent],
+      imports: [
+        RouterTestingModule.withRoutes([]),
+        HttpClientTestingModule
+      ],
+      providers:[NewsService]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -25,16 +32,15 @@ describe('NewsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should properly initialise data', () => {
-    const app= fixture.debugElement.componentInstance;
-    expect(app.news[0].title).toEqual("Health Ministry issued guidelines");
+  it('news service should be created', () => {
+    const app = fixture.debugElement.componentInstance;
+    const service: NewsService = TestBed.get(NewsService);
+    expect(service).toBeTruthy();
   });
 
-  it('should intialise the news', () => {
+  it('should have get news function', () => {
     let newsService = fixture.debugElement.injector.get(NewsService);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-    expect(newsService.news.length).toEqual(4);
+    expect(newsService.getNews).toBeTruthy();
   });
 
 });

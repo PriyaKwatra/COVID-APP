@@ -36,7 +36,7 @@ describe('LoginComponent', () => {
     expect(value.textContent).toContain('Sign in');
   });
 
-  it('should set logged in to true when correct user name and password',()=>{
+  it('should set sign in to true when correct user name and password',()=>{
     const app= fixture.debugElement.componentInstance;
      app.mail = 'pkwatra96@gmail.com'
      app.password ='hello'

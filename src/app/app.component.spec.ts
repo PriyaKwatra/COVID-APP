@@ -26,12 +26,12 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('covid-india');
   });
 
-  it('should set session storage loggenIn to false when logged out', () => {
+  it('should set loggenIn to false when logged out', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const app = fixture.componentInstance;
     app.logOut()
     fixture.detectChanges();
-    expect(sessionStorage.getItem("loggedIn")).toEqual("false");
+    expect(app.loggedIn).toEqual(false);
   });
 });
