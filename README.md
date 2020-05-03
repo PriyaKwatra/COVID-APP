@@ -3,6 +3,8 @@ This application will tell you covid situation in India. You can view state and 
 
 **steps to make the application working on local**
 
+clone the project
+
 npm install
 
 ng serve
