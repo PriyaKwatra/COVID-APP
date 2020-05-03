@@ -18,14 +18,16 @@
       <li class="nav-item" *ngIf="loggedIn">
         <a class="nav-link" routerLink="add">Add News</a>
       </li>
-      <li class="login" *ngIf="!loggedIn">
+      <li class="nav-item login" *ngIf="!loggedIn">
         <a class="nav-link" routerLink="login">Login</a>
       </li>
-      <li class="logout" *ngIf="loggedIn">
+      <li class="nav-item login" *ngIf="loggedIn">
         <a class="nav-link" (click)="logOut()">Logout</a>
       </li>
     </ul>
   </div>
 </nav>
-<label *ngIf="loggedIn">HELLO {{mail}} </label>
+<div>
+  <label *ngIf="loggedIn">HELLO {{mail}} </label>
+</div>
 <router-outlet></router-outlet>
