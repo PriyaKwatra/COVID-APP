@@ -22,7 +22,7 @@ export class AppComponent implements OnInit, DoCheck {
     private router: Router,
     private cookieService: CookieService) {
       
-    this.mail = this.cookieService.get('username');
+    this.mail = this.loginService.mail;
     this.password = this.cookieService.get('password');
     if (!loginService.validateUser(this.mail, this.password)) {
       this.loggedIn = false;

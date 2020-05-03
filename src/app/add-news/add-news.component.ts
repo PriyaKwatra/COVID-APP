@@ -36,7 +36,7 @@ export class AddNewsComponent implements OnInit {
       content: this.newsForm.value.description,
       date: fomattedDate,
       id: fomattedDate
-    }).subscribe(()=>{window.location.reload();});
+    }).subscribe(()=>{this.route.navigate(['news']);});
    
   }
 
