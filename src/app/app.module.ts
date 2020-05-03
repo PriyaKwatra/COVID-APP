@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { GetService } from './get.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { MatTableModule } from '@angular/material/table'
+import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { ChartsModule, WavesModule, CheckboxModule, ButtonsModule, InputsModule, IconsModule, CardsModule } from 'angular-bootstrap-md';
 import { DistrictinfoComponent } from './districtinfo/districtinfo.component'

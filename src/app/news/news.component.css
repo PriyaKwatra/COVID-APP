@@ -1,7 +1,17 @@
 .example-card {
     max-width: 800px;
-    height: 300px;
+    display: block;
+overflow: auto;
+    min-height: 100px;
     top:100px;
   left: 250px;
   margin-bottom: 50px; 
   }
+
+.info{
+  float: right;
+}
+
+.content{
+  padding: 20px;
+}
