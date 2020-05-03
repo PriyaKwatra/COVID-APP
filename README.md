@@ -19,6 +19,8 @@ mail:pkwatra96@gmail.com
 
 password:hello
 
+Cookie based authentication. You would not have to login again on page reload when already signed in.
+
 
 
 
