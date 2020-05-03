@@ -1,14 +1,18 @@
 <mat-card class="example-card" *ngFor="let info of news">
-  <mat-card-content>
-    <label class = "info">{{info.date}}</label>
-  </mat-card-content>
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>{{info.title}}</mat-card-title>
   </mat-card-header>
+  <mat-card-content>
+    <label class = "info">{{info.date}}</label>
+  </mat-card-content>
   <mat-card-content>
     <p>
       {{info.content}}
     </p>
   </mat-card-content>
 </mat-card>
+
+
+<div *ngIf="showLoadingSpinner" class="loader"> 
+</div>
